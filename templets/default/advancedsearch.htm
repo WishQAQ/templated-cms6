@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <title>搜索页</title>
+    ﻿<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<link rel="alternate icon" type="image/png" href="{dede:global.cfg_templets_skin/}/images/favicon.png">
+<link rel='icon' href='{dede:global.cfg_templets_skin/}/favicon.ico' type='image/x-ico' />
+<link rel="stylesheet" href="{dede:global.cfg_templets_skin/}/css/default.min.css?t=227" />
+<link rel="stylesheet" href="{dede:global.cfg_templets_skin/}/css/search.css" />
+<link rel="stylesheet" href="{dede:global.cfg_templets_skin/}/css/default.css" />
+<link rel="stylesheet" href="{dede:global.cfg_templets_skin/}/css/default.min.css" />
+<!--[if (gte IE 9)|!(IE)]><!-->
+<script type="text/javascript" src="{dede:global.cfg_templets_skin/}/lib/jquery/jquery.min.js"></script>
+<!--<![endif]-->
+<!--[if lte IE 8 ]>
+<script src="http://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
+<script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
+<script src="lib/amazeui/amazeui.ie8polyfill.min.js"></script>
+<![endif]-->
+<script type="text/javascript" src="{dede:global.cfg_templets_skin/}/lib/handlebars/handlebars.min.js"></script>
+<script type="text/javascript" src="{dede:global.cfg_templets_skin/}/lib/iscroll/iscroll-probe.js"></script>
+<script type="text/javascript" src="{dede:global.cfg_templets_skin/}/lib/amazeui/amazeui.min.js"></script>
+<script type="text/javascript" src="{dede:global.cfg_templets_skin/}/lib/raty/jquery.raty.js"></script>
+<script type="text/javascript" src="{dede:global.cfg_templets_skin/}/js/main.min.js?t=1"></script>
+</head>
+
+</head>
+<body>
+{dede:include filename="head.htm"/}
+<!--<div class="top cbox">
+	<div class="searchbox">
+	</div>
+</div>-->
+<div class="stitle cbox">
+	搜索结果页
+</div>
+<div class="slist cbox">
+{dede:datalist}
+
+<?php
+$fields['stime'] = GetDateTimeMk($fields['senddate']);
+$fields['arcurl'] = GetArcUrl($fields['aid'],$fields['typeid'],$fields['senddate'],$fields['title'],$fields['ismake'],$fields['arcrank'],$fields['namerule'],$fields['typedir'],$fields['money']);
+$fields['typeurl'] = GetTypeUrl($fields['typeid'],MfTypedir($fields['typedir']),$fields['isdefault'],$fields['defaultname'],
+			$fields['ispart'],$fields['namerule2'],$fields['moresite'],$fields['siteurl'],$fields['sitepath']);
+?>
+		<dl>
+			<dt><a href="{dede:field.arcurl/}" target="_blank">{dede:field.title/}</a></dt>
+			<dd><p>{dede:field.description1/}...</p></dd>
+			<dd>
+				<!--<span>
+					<a href="{dede:field.arcurl/}" target="_blank">{dede:field.arcurl/}</a>
+				</span>-->
+				<span>来自: <a href="{dede:field.typeurl/}" target="_blank">{dede:field.typename/}</a></span>
+				<span>点击: {dede:field.click/}</span>
+				<span>日期: {dede:field.stime/}</span>
+			</dd>
+		</dl>
+		
+{/dede:datalist}
+
+</div>
+
+		<div class="article_list_more_pages">
+                    <ul>
+                     <!--{dede:pagelist listitem="index,end,pre,next,pageno" listsize="3"/}-->
+                     {dede:pagelist listsize='2' listitem='info index pre pageno next end option'/}
+                    </ul>
+        </div>
+
+{dede:include filename="footer.htm"/}
+</body>
+</html>

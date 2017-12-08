@@ -1,0 +1,5 @@
+INSERT INTO `dede_plus_seoinfo` VALUES('1','1505198710','0','0','3','0','0');
+INSERT INTO `dede_plus_seoinfo` VALUES('2','1505264432','0','0','3','0','0');
+INSERT INTO `dede_plus_seoinfo` VALUES('3','1505455015','0','0','3','0','0');
+INSERT INTO `dede_plus_seoinfo` VALUES('4','1505525668','0','0','3','0','0');
+INSERT INTO `dede_plus_seoinfo` VALUES('5','1505696702','0','0','3','0','0');

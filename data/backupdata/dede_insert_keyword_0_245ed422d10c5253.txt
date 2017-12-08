@@ -1,0 +1,4 @@
+INSERT INTO `dede_insert_keyword` VALUES('1','??????','hhtp://www.84tom.com');
+INSERT INTO `dede_insert_keyword` VALUES('2','???????','http://www.84tom.com');
+INSERT INTO `dede_insert_keyword` VALUES('4','????','http://www.baidu.com');
+INSERT INTO `dede_insert_keyword` VALUES('5','CF????','hhtp://www.84tom.com');

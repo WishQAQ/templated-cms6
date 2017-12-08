@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+
+    <title>{dede:field.title/}_{dede:global.cfg_webname/}</title>
+<meta name="keywords" content="{dede:field.keywords/}" />
+<meta name="description" content="{dede:field.description function='html2text(@me)'/}" />
+    
+    ﻿<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="format-detection" content="telephone=no">
+<meta name="renderer" content="webkit">
+
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<link rel="alternate icon" type="image/png" href="{dede:global.cfg_templets_skin/}/images/favicon.png">
+<link rel='icon' href='{dede:global.cfg_templets_skin/}/favicon.ico' type='image/x-ico' />
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<link rel="stylesheet" href="{dede:global.cfg_templets_skin/}/css/default.min.css?t=227" />
+<!--[if (gte IE 9)|!(IE)]><!-->
+<script type="text/javascript" src="{dede:global.cfg_templets_skin/}/lib/jquery/jquery.min.js"></script>
+<!--<![endif]-->
+<!--[if lte IE 8 ]>
+<script src="http://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
+<script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
+<script src="lib/amazeui/amazeui.ie8polyfill.min.js"></script>
+<![endif]-->
+<script type="text/javascript" src="{dede:global.cfg_templets_skin/}/lib/handlebars/handlebars.min.js"></script>
+<script type="text/javascript" src="{dede:global.cfg_templets_skin/}/lib/iscroll/iscroll-probe.js"></script>
+<script type="text/javascript" src="{dede:global.cfg_templets_skin/}/lib/amazeui/amazeui.min.js"></script>
+<script type="text/javascript" src="{dede:global.cfg_templets_skin/}/lib/raty/jquery.raty.js"></script>
+<script type="text/javascript" src="{dede:global.cfg_templets_skin/}/js/main.min.js?t=1"></script>
+</head>
+<body>
+{dede:include filename="head.htm"/}
+<section class="pro-list">
+    <aside class="pro-leftsidebar">
+        <ul>
+            
+            <li>
+               <a>{dede:field.typeid runphp='yes'}$ID = @me; $sql = "SELECT * FROM `dede_arctype` WHERE id=$ID";$query = mysql_query($sql);$row=mysql_fetch_array($query); $relID = "$row[reid]"; if($relID == 0) {@me = $row[typename];}else{$sql = "SELECT `typename` FROM `dede_arctype` WHERE id=$relID";$query = mysql_query($sql);$row=mysql_fetch_array($query); @me = $row[typename];}{/dede:field.typeid}</a>
+               <ul id="pro-category">
+                 
+                    {dede:channelartlist type='son' noself='yes' typeid='2'}
+                        <li {dede:field name='currentstyle'/}>
+                        	<a href="{dede:field name='typeurl'/}" target="">{dede:field name='typename'/}</a>
+                        </li>
+                    {/dede:channelartlist}	
+                </ul>
+            </li>
+        </ul>
+    </aside>
+
+    <aside class="pro-rightsidebar">
+          <header class="header-article-list">
+	        <div class="contact-left">
+	        	<!--{dede:type typeid='4'}[field:typename /]{/dede:type}-->
+	        	{dede:field.typename/}
+	        </div>
+	        <div class="contact-right">
+	            <a  href="index.html">
+	              <span>当前位置：{dede:field name='position'/}</span>
+	         	</a>
+	        </div>
+   		 </header>
+        <main>
+           <!--<div class="pro-right-left">
+                <div class="pro-details-img">
+                	{dede:field name='image'/}
+                </div>
+                <div class="pro-detalis-carousel">
+                    <div class="am-slider am-slider-default am-slider-carousel" data-am-flexslider="{itemWidth: 112, itemMargin: 4,move:5,  controlNav: false ,  slideshow: true}">
+                        <ul class="am-slides pro-details">
+                            <li><img src="{dede:global.cfg_templets_skin/}/images/procarousel.png" /></li>
+                            <li><img src="{dede:global.cfg_templets_skin/}/images/team1.png" /></li>
+                            <li><img src="{dede:global.cfg_templets_skin/}/images/team2.png" /></li>
+                            <li><img src="{dede:global.cfg_templets_skin/}/images/team3.png" /></li>
+                            <li><img src="{dede:global.cfg_templets_skin/}/images/team4.png" /></li>
+                            <li><img src="{dede:global.cfg_templets_skin/}/images/procarousel.png" /></li>
+                            <li><img src="{dede:global.cfg_templets_skin/}/images/procarousel.png" /></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>-->
+            
+            <div class="am-tabs pro-tabs" data-am-tabs>
+                <ul class="am-tabs-nav am-nav am-nav-tabs">
+                    <li class="am-active"><a href="#tab1">详细说明</a></li>
+                    
+                </ul>
+
+                <div class="am-tabs-bd">
+                    <div class="am-tab-panel am-active" id="tab1">
+                    	{dede:field.body/}   	
+                    </div>  
+              
+                </div>
+            </div>
+        </main>
+    </aside>
+
+
+</section>
+	<div class="article_list_more_pages">
+                    <ul>
+                     {dede:pagelist listitem="index,end,pre,next,pageno" listsize="5"/}
+                    </ul>
+        </div>
+
+﻿{dede:include filename="footer.htm"/}
+
+</body>
+
+</html>

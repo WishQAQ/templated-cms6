@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <title>{dede:global.cfg_webname/}</title>
+    ﻿<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<link rel="alternate icon" type="image/png" href="{dede:global.cfg_templets_skin/}/images/favicon.png">
+<link rel='icon' href='{dede:global.cfg_templets_skin/}/favicon.ico' type='image/x-ico' />
+<link rel="stylesheet" href="{dede:global.cfg_templets_skin/}/css/default.min.css?t=227" />
+<!--[if (gte IE 9)|!(IE)]><!-->
+<script type="text/javascript" src="{dede:global.cfg_templets_skin/}/lib/jquery/jquery.min.js"></script>
+<!--<![endif]-->
+<!--[if lte IE 8 ]>
+<script src="http://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
+<script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
+<script src="lib/amazeui/amazeui.ie8polyfill.min.js"></script>
+<![endif]-->
+<script type="text/javascript" src="{dede:global.cfg_templets_skin/}/lib/handlebars/handlebars.min.js"></script>
+<script type="text/javascript" src="{dede:global.cfg_templets_skin/}/lib/iscroll/iscroll-probe.js"></script>
+<script type="text/javascript" src="{dede:global.cfg_templets_skin/}/lib/amazeui/amazeui.min.js"></script>
+<script type="text/javascript" src="{dede:global.cfg_templets_skin/}/lib/raty/jquery.raty.js"></script>
+<script type="text/javascript" src="{dede:global.cfg_templets_skin/}/js/main.min.js?t=1"></script>
+</head>
+<body>
+{dede:include filename="head.htm"/}
+<div>
+<!--<header class="header-article-list">
+        <div class="contact-left">{dede:type typeid='3'}[field:typename /]{/dede:type}</div>
+        <div class="contact-right">
+            <a  href="index.html">
+              <span>当前位置：{dede:field name='position'/}</span>
+         	</a>
+        </div>
+    </header>-->
+    <section class="article-content">
+            <h4>
+            	<!--{dede:type typeid='11'}[field:typename /]{/dede:type}-->
+            	{dede:field.title/}
+            </h4>
+            <ul>
+                <li>作者：{dede:field.vote/}</li>
+                <li>发表时间：{dede:field.pubdate function="MyDate('Y-m-d H:i',@me)"/}</li>
+                <li>来源：{dede:field.source/}</li>
+            </ul>
+            <div class="clearfix"></div>
+            <style>
+            .article-content ul li{
+            	padding: 0 30px;
+            	float: left;
+            }
+            .article-content ul {
+            	width: 700px;
+            	margin-left: auto;
+            	margin-right: auto;
+            	margin-bottom: 20px;
+            	height: 40px;
+            	line-height: 40px;
+            }
+            .article-content h4{
+            	padding:30px 0;
+            }	
+            </style>
+            
+        <main>
+        	
+		{dede:field.body/}
+       
+        </main>
+        <div class="pn">
+        	<span>{dede:prenext get='pre'/}</span>
+        	<span>{dede:prenext get='next'/}</span>
+        </div>
+        <style>
+        	.pn span a{
+        		color: #000000;
+        	}
+        	.pn span{
+        		padding: 0 20px;
+        	}
+        </style>
+    </section>
+</div>
+﻿﻿{dede:include filename="footer.htm"/}
+</body>
+</html>

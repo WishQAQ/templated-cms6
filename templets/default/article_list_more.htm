@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <title>{dede:global.cfg_webname/}</title>
+    ﻿<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<link rel="alternate icon" type="image/png" href="{dede:global.cfg_templets_skin/}/images/favicon.png">
+<link rel='icon' href='{dede:global.cfg_templets_skin/}/favicon.ico' type='image/x-ico' />
+<link rel="stylesheet" href="{dede:global.cfg_templets_skin/}/css/default.min.css?t=227" />
+<!--[if (gte IE 9)|!(IE)]><!-->
+<script type="text/javascript" src="{dede:global.cfg_templets_skin/}/lib/jquery/jquery.min.js"></script>
+<!--<![endif]-->
+<!--[if lte IE 8 ]>
+<script src="http://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
+<script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
+<script src="lib/amazeui/amazeui.ie8polyfill.min.js"></script>
+<![endif]-->
+<script type="text/javascript" src="{dede:global.cfg_templets_skin/}/lib/handlebars/handlebars.min.js"></script>
+<script type="text/javascript" src="{dede:global.cfg_templets_skin/}/lib/iscroll/iscroll-probe.js"></script>
+<script type="text/javascript" src="{dede:global.cfg_templets_skin/}/lib/amazeui/amazeui.min.js"></script>
+<script type="text/javascript" src="{dede:global.cfg_templets_skin/}/lib/raty/jquery.raty.js"></script>
+<script type="text/javascript" src="{dede:global.cfg_templets_skin/}/js/main.min.js?t=1"></script>
+</head>
+<body>
+{dede:include filename="head.htm"/}
+
+<div>
+ <!--<header class="header-article-list">
+        <div class="contact-left">{dede:type typeid='3'}[field:typename /]{/dede:type}</div>
+        <div class="contact-right">
+            <a  href="index.html">
+              <span>当前位置：{dede:field name='position'/}</span>
+         	</a>
+        </div>
+    </header>-->
+
+    <section class="article-content">
+        <ul>
+           
+  	 {dede:arclist pagesize='4' row=4 orderby=pubdate  typeid='3' addfields='body' channelid='1'}
+		 	   <li>
+		 	  	  <div class="article-date">
+	               <strong style="font-size: 20px;">[field:pubdate function=MyDate('d',@me)/]</strong>
+                    <p>[field:pubdate function=MyDate('Y-m',@me)/]</p>
+               	  </div>	
+		          <div class="article-info">
+		            	<a href="[field:arcurl/]" title="[field:title/]" >
+		            		<h3>[field:fulltitle/]</h3>
+		            		<p>
+		            			[field:body function='cn_substr(html2text(@me),180)'/]...
+		            			 <!--[field:description/]...-->
+		            		</p>
+		            	</a>
+		           </div>
+		          </li>
+		      {/dede:arclist} 
+        </ul>
+
+    </section>
+    <!--<div class="article_list_more_pages">
+        <ul>
+            <li><a>上一页</a></li>
+            <li class="article-current"><a>1</a></li>
+            <li><a>2</a></li>
+            <li><a>3</a></li>
+            <li><a>下一页</a></li>
+            {dede:pagelist istitem="index,pre,next,end,option,info," listsize="5"/}
+        </ul>
+    </div>-->
+     <div class="article_list_more_pages">
+                    <ul>
+                     {dede:pagelist listitem="index,end,pre,next,pageno" listsize="5"/}
+                    </ul>
+        </div>
+</div>
+﻿﻿﻿{dede:include filename="footer.htm"/}
+</body>
+</html>

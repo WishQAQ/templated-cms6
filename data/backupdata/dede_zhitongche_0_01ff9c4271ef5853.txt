@@ -1,0 +1,1 @@
+INSERT INTO `dede_zhitongche` VALUES('1368','25','444','','','127.0.0.1','陈老师','028-86788510 18982190031','成都市红星路二段106号','/member/index.php?uid=aliqqjs');

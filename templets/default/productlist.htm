@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+   
+    <title>{dede:field.title/}_{dede:global.cfg_webname/}</title>
+<meta name="keywords" content="{dede:field name='keywords'/}" />
+<meta name="description" content="{dede:field name='description' function='html2text(@me)'/}" />
+
+    ﻿<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<link rel="alternate icon" type="image/png" href="{dede:global.cfg_templets_skin/}/images/favicon.png">
+<link rel='icon' href='{dede:global.cfg_templets_skin/}/favicon.ico' type='image/x-ico' />
+<link rel="stylesheet" href="{dede:global.cfg_templets_skin/}/css/default.min.css?t=227" />
+<!--[if (gte IE 9)|!(IE)]><!-->
+<script type="text/javascript" src="{dede:global.cfg_templets_skin/}/lib/jquery/jquery.min.js"></script>
+<!--<![endif]-->
+<!--[if lte IE 8 ]>
+<script src="http://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
+<script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
+<script src="lib/amazeui/amazeui.ie8polyfill.min.js"></script>
+<![endif]-->
+<script type="text/javascript" src="{dede:global.cfg_templets_skin/}/lib/handlebars/handlebars.min.js"></script>
+<script type="text/javascript" src="{dede:global.cfg_templets_skin/}/lib/iscroll/iscroll-probe.js"></script>
+<script type="text/javascript" src="{dede:global.cfg_templets_skin/}/lib/amazeui/amazeui.min.js"></script>
+<script type="text/javascript" src="{dede:global.cfg_templets_skin/}/lib/raty/jquery.raty.js"></script>
+<script type="text/javascript" src="{dede:global.cfg_templets_skin/}/js/main.min.js?t=1"></script>
+</head>
+<body>
+{dede:include filename="head.htm"/}
+
+<section class="pro-list">
+    <aside class="pro-leftsidebar">
+        <ul>
+            <!--<li>
+                <a>产品搜索</a>
+                <ul id="pro-search">
+                    <li><a><input type="text"  class="pro-search"><a class="pro-search-btn">搜索</a></a></li>
+                </ul>
+            </li>-->
+            <li>
+                <a>{dede:field.typeid runphp='yes'}$ID = @me; $sql = "SELECT * FROM `dede_arctype` WHERE id=$ID";$query = mysql_query($sql);$row=mysql_fetch_array($query); $relID = "$row[reid]"; if($relID == 0) {@me = $row[typename];}else{$sql = "SELECT `typename` FROM `dede_arctype` WHERE id=$relID";$query = mysql_query($sql);$row=mysql_fetch_array($query); @me = $row[typename];}{/dede:field.typeid}</a>
+                <ul id="pro-category">
+                    <!--<li class="on"><a href="#">椅子系列</a></li>
+                    <li><a href="#">餐桌系列</a></li>
+                    <li><a href="#">沙发系列</a></li>
+                    <li><a href="#">创意系列</a></li>
+                    -->
+                       {dede:channelartlist type='son' noself='yes' typeid='2'}
+                        <li {dede:field name='currentstyle'/}>
+                        	<a href="{dede:field name='typeurl'/}" target="">{dede:field name='typename'/}</a>
+                        </li>
+                       {/dede:channelartlist}	
+                </ul>
+            </li>
+        </ul>
+    </aside>
+
+    <aside class="pro-rightsidebar">
+          <header class="header-article-list">
+	        <div class="contact-left">
+	        	<!--{dede:type typeid='4'}[field:typename /]{/dede:type}-->
+	        	{dede:field.typename/}
+	        </div>
+	        <div class="contact-right">
+	            <a>
+	              <span>当前位置：{dede:field name='position'/}</span>
+	         	</a>
+	        </div>
+   		 </header>
+   		 <ul>
+   		 	 {dede:list pagesize='4' titlelen='50'}
+                    <li class='hover' data-animate="fadeInUp" data-delay="[field:autoindex runphp='yes']@me=$GLOBALS['autoindex'];[/field:autoindex]00">
+                    	<a href="[field:arcurl/]" >
+		                    <div class="img-box">
+		                        <img src="[field:litpic/]">
+		                        <p>[field:title/]</p>
+		                    </div>
+		                </a>
+					</li>
+			{/dede:list}		
+   		 </ul>
+        
+    </aside>
+	
+
+</section>
+	<div class="article_list_more_pages">
+                    <ul>
+                     {dede:pagelist listitem="index,end,pre,next,pageno" listsize="5"/}
+                    </ul>
+        </div>
+
+﻿﻿{dede:include filename="footer.htm"/}
+</body>
+</html>

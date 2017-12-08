@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <title>{dede:global.cfg_webname/}</title>
+    ﻿<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<link rel="alternate icon" type="image/png" href="{dede:global.cfg_templets_skin/}/images/favicon.png">
+<link rel='icon' href='{dede:global.cfg_templets_skin/}/favicon.ico' type='image/x-ico' />
+<link rel="stylesheet" href="{dede:global.cfg_templets_skin/}/css/default.min.css?t=227" />
+<!--[if (gte IE 9)|!(IE)]><!-->
+<script type="text/javascript" src="{dede:global.cfg_templets_skin/}/lib/jquery/jquery.min.js"></script>
+<!--<![endif]-->
+<!--[if lte IE 8 ]>
+<script src="http://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
+<script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
+<script src="lib/amazeui/amazeui.ie8polyfill.min.js"></script>
+<![endif]-->
+<script type="text/javascript" src="{dede:global.cfg_templets_skin/}/lib/handlebars/handlebars.min.js"></script>
+<script type="text/javascript" src="{dede:global.cfg_templets_skin/}/lib/iscroll/iscroll-probe.js"></script>
+<script type="text/javascript" src="{dede:global.cfg_templets_skin/}/lib/amazeui/amazeui.min.js"></script>
+<script type="text/javascript" src="{dede:global.cfg_templets_skin/}/lib/raty/jquery.raty.js"></script>
+<script type="text/javascript" src="{dede:global.cfg_templets_skin/}/js/main.min.js?t=1"></script>
+</head>
+<body>
+{dede:include filename="head.htm"/}
+
+<div>
+        <header class="header-article-list">
+        <div class="contact-left">{dede:type typeid='5'}[field:typename /]{/dede:type}</div>
+        <div class="contact-right">
+            <a  href="index.html">
+              <span>当前位置：{dede:field name='position'/}</span>
+         	</a>
+        </div>
+   		</header>
+
+<div>
+   <form class="message-form" method="post">
+
+       <label  valign="top">姓名
+           <input type='text' name='name' id='name'  class='intxt' value='' />
+           <span>*</span>
+       </label>
+	   <label  valign="top">电话 
+           <input type='text' name='tel' id='tel'  class='intxt' value='' />
+           <span>*</span>
+      </label>
+       <label  valign="top">邮箱
+           <input type='text' name='email' id='email'  class='intxt' value='' />
+           <span>*</span>
+       </label>
+       <label  valign="top">内容
+           <textarea name='text' id='text'></textarea>
+           <span>*</span>
+       </label>
+       <input type="hidden" name="dede_fields" value="name,text;tel,text;email,text;text,multitext" />
+		<input type="hidden" name="dede_fieldshash" value="2f57ff030a1b5c130a36c5e84b91315d" />
+       <button type="submit" class="am-btn am-btn-danger">提交</button>
+       <button type="reset" class="am-btn am-btn-danger1" >重置</button>
+       
+       <style>
+       	.am-btn-danger1{
+       		background-color: #D8D8D8;
+       		border: 1px solid #C0C0C0 ;
+       	}
+       	.am-btn-danger1:hover{
+       		background-color: #C8C8C8;
+       		border: 1px solid #C0C0C0 ;
+       	}
+       </style>
+       	
+   </form>
+</div>
+</div>
+﻿{dede:include filename="footer.htm"/}
+</body>
+</html>

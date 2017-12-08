@@ -1,0 +1,2 @@
+INSERT INTO `dede_diyform114` VALUES('1','0','东西','市政府','市政府','深圳的发展');
+INSERT INTO `dede_diyform114` VALUES('2','0','1','2','3','4444');

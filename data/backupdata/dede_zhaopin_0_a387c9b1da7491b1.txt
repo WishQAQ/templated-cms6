@@ -1,0 +1,2 @@
+INSERT INTO `dede_zhaopin` VALUES('17','30','<span style=\"color: rgb(51, 51, 51); font-family: 微软雅黑, 宋体, Arial, sans-serif; font-size: 18px; line-height: 36px; text-indent: 24px;\">高薪诚聘给排水专业、电气专业、暖通专业、室内设计专业、效果图专业1~3年工作经验设计师</span>','','','0.0.0.0','1','安徽','xxxx@qq.com');
+INSERT INTO `dede_zhaopin` VALUES('18','30','<span style=\"color: rgb(51, 51, 51); font-family: 微软雅黑, 宋体, Arial, sans-serif; font-size: 18px; line-height: 36px; text-indent: 24px;\">高薪诚聘给排水专业、电气专业、暖通专业、室内设计专业、效果图专业1~3年工作经验设计师</span>','','','0.0.0.0','3','安徽','66666@qq.com');

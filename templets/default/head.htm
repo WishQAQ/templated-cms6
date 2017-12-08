@@ -1,0 +1,62 @@
+<header>
+    <div class="header-top">
+        <div class="width-center">
+            <div class="header-logo ">
+            	<img src="{dede:global.cfg_templets_skin/}/images/logo.png" alt="">
+            </div>
+            <div class="header-title div-inline">
+                <strong>{dede:global.cfg_webname/}</strong>
+                <span>www.zhanoo.com</span>
+            </div>
+  			<div class="search-box div-inline">
+	  			<form action="/plus/advancedsearch.php" method="post">
+	  				<input type="hidden" name="mid" value="1" />
+	  				<input type="hidden" name="dopost" value="search" />
+	  				<input class="input-box" type="text" name="q" placeholder="请输入关键字" />
+	  				<input class="search-botton" type="submit" name="submit" value="" />
+	  			</form>
+  			</div>
+
+  			<style>
+  				.input-box{
+  					padding-left: 10px;
+  					height: 30px;
+  					line-height: 30px;
+  				}
+  				.search-botton{ 
+  					padding: 0;
+  					margin: 0;
+  					border: none;
+  					margin-left: 5px;
+  					}
+  			</style>	
+  
+        </div>
+    </div>
+    <div class="header-nav">
+        <button class="am-show-sm-only am-collapsed font f-btn" data-am-collapse="{target: '.header-nav'}">Menu <i
+                class="am-icon-bars"></i></button>
+        <nav>
+        <ul class="header-nav-ul am-collapse am-in">
+            <li class="on"><a href="/" name="index">网站首页</a></li>
+            {dede:channel row="5" type="top" col="1" currentstyle="
+            <li class='hover'><a href='~typelink~' ~rel~>
+            	<span>~typename~</span>
+            </a>
+            </li>" }
+			<li><a href='[field:typeurl/]' [field:rel/]><span>[field:typename/]</span></a></li>
+			{/dede:channel}   
+			
+        </ul>  		
+        </nav>   
+    </div>
+
+</header>
+
+<div class="am-slider am-slider-default" data-am-flexslider="{playAfterPaused: 8000}">
+    <ul class="am-slides">    
+          {dede:arclist typeid='6'}
+        <li><a href="[field:arcurl/]"><img src="[field:litpic/]" /></a></li>
+		{/dede:arclist}      
+    </ul>
+</div>

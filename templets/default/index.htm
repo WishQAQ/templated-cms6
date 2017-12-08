@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <title>{dede:global.cfg_webname/}</title>
+    ﻿<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<link rel="alternate icon" type="image/png" href="{dede:global.cfg_templets_skin/}/images/favicon.png">
+<link rel='icon' href='{dede:global.cfg_templets_skin/}/favicon.ico' type='image/x-ico' />
+<link rel="stylesheet" href="{dede:global.cfg_templets_skin/}/css/default.min.css?t=227" />
+<!--[if (gte IE 9)|!(IE)]><!-->
+<script type="text/javascript" src="{dede:global.cfg_templets_skin/}/lib/jquery/jquery.min.js"></script>
+<!--<![endif]-->
+<!--[if lte IE 8 ]>
+<script src="http://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
+<script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
+<script src="lib/amazeui/amazeui.ie8polyfill.min.js"></script>
+<![endif]-->
+<script type="text/javascript" src="{dede:global.cfg_templets_skin/}/lib/handlebars/handlebars.min.js"></script>
+<script type="text/javascript" src="{dede:global.cfg_templets_skin/}/lib/iscroll/iscroll-probe.js"></script>
+<script type="text/javascript" src="{dede:global.cfg_templets_skin/}/lib/amazeui/amazeui.min.js"></script>
+<script type="text/javascript" src="{dede:global.cfg_templets_skin/}/lib/raty/jquery.raty.js"></script>
+<script type="text/javascript" src="{dede:global.cfg_templets_skin/}/js/main.min.js?t=1"></script>
+</head>
+<body>
+
+{dede:include filename="head.htm"/}
+
+<section class="index-section">
+    <div>
+        <span></span>
+        <span></span>
+    </div>
+    <div class="index-content">
+        <section class="index-content-section-first">
+        	<div>
+        		<img src="{dede:global.cfg_templets_skin/}/images/sectionbanner.png" alt="">
+        	</div>
+        </section>
+        <section class="index-content-section-second">
+            <div>
+                <div class="index-auto">
+            <article>公司介绍</article>
+            <h6>COMPANY INTRODUCTION</h6>
+            <main>
+            	
+           {dede:sql sql='Select content from dede_arctype where id=1'}
+		　　     [field:content/] 
+		　　{/dede:sql}
+            </main>
+            <a class="index-button" href="#">查看详情</a>
+                </div>
+            </div>
+        </section>
+    </div>
+</section>
+
+<section class="index-product">
+    <main>
+        <ul>
+   
+            {dede:channel row="4" typeid="2" col="1" currentstyle="
+            <li class='index-active'>
+            	<a href='#' ~rel~>
+            		<!--<span>~typename~</span>-->
+            	</a></li>" }
+			<li>
+				<a href='#' [field:rel/]>
+					<!--<span>[field:typename/]</span>-->
+				</a></li>
+			{/dede:channel}    
+        </ul>
+    </main>
+
+</section>
+
+<section class="index-margin-bottom">
+    <div class="index-morecase">
+        <span></span>
+        <a href="#">MORE &#62; &#62;</a>
+    </div>
+    <div class="index-content">
+        
+       <style>
+       	ul li{
+				margin: 0;
+				padding: 0;
+				list-style: none;
+			}
+       	a{
+       		text-decoration:none;    
+       	}
+       </style>
+        <ul class="product-list">
+        	{dede:arclist row'6' pagesize="6"  typeid="2" flag="p"}
+			<li class="am-u-sm-6 am-u-md-6 am-u-lg-4">
+				<!--<b>[field:typelink/]</b>]-->
+				<a href="[field:arcurl/]" >
+					<!--[field:title/]-->
+					<img src="[field:litpic/]" alt="[field:title/]" />
+				</a>
+			</li>
+			{/dede:arclist}       	
+        </ul>        
+    </div>
+</section>
+
+<section class="index-margin-bottom">
+    <div class="index-morecase">
+        <span></span>
+        <a href="#">MORE &#62; &#62;</a>
+    </div>
+    <div class="index-content">
+        <div class="new-index">
+			<ul class="recommended">
+				{dede:arclist row="1" typeid="3" channelid="1" flag="c"}
+				<li>
+					<a href="[field:arcurl/]" title="[field:title/]">
+						<img src="[field:litpic/]" alt="[field:title/]"/>
+						<h3>[field:title/]</h3>
+						<article>[field:body function='cn_substr(html2text(@me),80)'/]...</article>
+					</a>	
+				</li>
+				{/dede:arclist} 
+			</ul>
+			<ul class="newslist">
+		 	  {dede:arclist row=4 orderby=pubdate  typeid='3' addfields='body' channelid='1'}
+		          <li>
+		            	<a href="[field:arcurl/]" title="[field:title/]" >
+		            		<h3>[field:title/]</h3>
+		            	</a>
+		            <article>[field:body function='cn_substr(html2text(@me),120)'/]...</article>
+		          </li>
+		      {/dede:arclist} 
+			<ul>
+       </div>   
+    </div>
+</section>
+
+﻿{dede:include filename="footer.htm"/}
+</body>
+</html>

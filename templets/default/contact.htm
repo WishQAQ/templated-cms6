@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <title>{dede:global.cfg_webname/}</title>
+    ﻿<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<link rel="alternate icon" type="image/png" href="{dede:global.cfg_templets_skin/}/images/favicon.png">
+<link rel='icon' href='{dede:global.cfg_templets_skin/}/favicon.ico' type='image/x-ico' />
+<link rel="stylesheet" href="{dede:global.cfg_templets_skin/}/css/default.min.css?t=227" />
+<!--[if (gte IE 9)|!(IE)]><!-->
+<script type="text/javascript" src="{dede:global.cfg_templets_skin/}/lib/jquery/jquery.min.js"></script>
+<!--<![endif]-->
+<!--[if lte IE 8 ]>
+<script src="http://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
+<script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
+<script src="lib/amazeui/amazeui.ie8polyfill.min.js"></script>
+<![endif]-->
+<script type="text/javascript" src="{dede:global.cfg_templets_skin/}/lib/handlebars/handlebars.min.js"></script>
+<script type="text/javascript" src="{dede:global.cfg_templets_skin/}/lib/iscroll/iscroll-probe.js"></script>
+<script type="text/javascript" src="{dede:global.cfg_templets_skin/}/lib/amazeui/amazeui.min.js"></script>
+<script type="text/javascript" src="{dede:global.cfg_templets_skin/}/lib/raty/jquery.raty.js"></script>
+<script type="text/javascript" src="{dede:global.cfg_templets_skin/}/js/main.min.js?t=1"></script>
+</head>
+<body>
+{dede:include filename="head.htm"/}
+<div>
+    <header class="header-article-list">
+        <div class="contact-left">{dede:type typeid='4'}[field:typename /]{/dede:type}</div>
+        <div class="contact-right">
+            <a  href="index.html">
+              <span>当前位置：{dede:field name='position'/}</span>
+         	</a>
+        </div>
+    </header>
+
+    <main class="contact">
+        <!--<iframe src="{dede:type typeid='14'}[field:typename /]{/dede:type}" width="636" height="378" frameborder="0" scrolling="no">
+        </iframe>-->
+     
+        	<img src="{dede:global.cfg_templets_skin/}/images/contactimg.jpg"  style="width: 636px;height: 378px;">
+        <ul>
+            <li>
+                <span><img src="{dede:global.cfg_templets_skin/}/images/contact1.png"/></span>
+                <h2>联系我们</h2>
+                <p>{dede:global.cfg_tel/}</p>
+            </li>
+            <li>
+                <span><img src="{dede:global.cfg_templets_skin/}/images/contact2.png"/></span>
+                <h2>公司地址</h2>
+                <p>{dede:global.cfg_place/}</p>
+            </li>
+            <li>
+                <span><img src="{dede:global.cfg_templets_skin/}/images/contact3.png"/></span>
+                <h2>电子邮箱</h2>
+                <p>{dede:global.cfg_email/}</p>
+            </li>
+        </ul>
+        <div class="clearfix"></div>
+    </main>
+</div>
+﻿﻿{dede:include filename="footer.htm"/}
+</body>
+
+</html>
